@@ -1,5 +1,6 @@
 * {
   margin: 0;
+  font-family: sans-serif;
 }
 
 body {
@@ -32,17 +33,23 @@ ul {
 
 .list-item {
   list-style: none;
+  display: flex;
 }
 
 #checkbox {
   margin-right: 20px;
+  appearance: none;
+}
+
+#checkbox:before {
+  /* margin-right: 20px; */
   border: 1px solid #0fcdb9;
 }
 
 #task-text {
   border: none;
   width: 80%;
-  font-family: sans-serif;
+  color: #54585a;
   font-size: 20px;
 }
 
@@ -96,4 +103,64 @@ ul {
   70% {
     transform: scale(1);
   }
+}
+
+.add-task-popup {
+  width: 25%;
+  display: flex;
+  padding: 10px;
+  /* justify-items: center; */
+  margin: 0 auto;
+  flex-direction: column;
+  background-color: #0a9d8d;
+  /* color: white; */
+  border-radius: 3px;
+  box-shadow: 5px 10px 15px 0px rgba(49, 49, 49, 0.75);
+  z-index: 1;
+  position: absolute;
+  bottom: 200px;
+  left: 36.5%;
+}
+
+.new-task {
+  font-size: 12px;
+  padding: 8px;
+  color: #a3d9d2;
+}
+
+.add-task-name {
+  padding: 5px;
+  margin: 8px;
+  background-color: #0a9d8d;
+  color: white;
+  font-size: 18px;
+  border-radius: 3px;
+  border: 1px solid #a1d6cf;
+}
+
+.add-task-name:focus {
+  outline: none;
+}
+
+.add-task-btn {
+  margin: 15px auto;
+  width: 50%;
+  padding: 5px;
+  background-color: #0a9d8d;
+  color: white;
+  border-radius: 15px;
+  border: 2px solid white;
+  font-size: 18px;
+}
+
+.add-task-btn:focus {
+  outline: none;
+}
+
+.add-task-btn:hover {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }
