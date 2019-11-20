@@ -2,6 +2,7 @@
 
 const addButton = document.querySelector("#add-btn");
 const mainContainer = document.querySelector(".main-container");
+const addTaskSection = document.querySelector(".add-task-section");
 const resetLogo = document.querySelector("#logo");
 
 function addDate() {
@@ -19,25 +20,18 @@ function addDate() {
 }
 
 function addContainerTask() {
-  mainContainer.innerHTML += `<section class="add-task-section"><div class="add-task-popup">
-    <span class="new-task">Nueva tarea</span>
-    <input class="add-task-name" type="text" />
-    <button class="add-task-btn">Añadir</button></div></section>`;
   const addTaskBtn = document.querySelector(".add-task-btn");
-
-  const addTaskSection = document.querySelector(".add-task-section");
-  addTaskSection.classList.add("hidden");
+  addTaskSection.classList.toggle("hidden");
   addTaskBtn.addEventListener("click", addTask);
+
+  document.querySelector(".add-task-name").value = "";
 }
 
 function addTask() {
-  const addTaskSection = document.querySelector(".add-task-section");
-  addTaskSection.classList.remove("hidden");
+  addTaskSection.classList.toggle("hidden");
   const list = document.querySelector(".list-container");
   const taskName = document.querySelector(".add-task-name").value;
-  console.log(taskName);
   list.innerHTML += `<li class="list-item"><input id="checkbox" type="checkbox" /><p id="task-text">${taskName}</p></li>`;
-  //   addContainerTask();
 }
 
 // function hidePopUp() {
@@ -47,9 +41,6 @@ function addTask() {
 // }
 
 window.addEventListener("load", addDate);
-addButton.addEventListener("click", function() {
-  addContainerTask();
-  addTask();
-});
+addButton.addEventListener("click", addContainerTask);
 
 // resetLogo.addEventListener("click", hidePopUp);
